@@ -6,6 +6,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  overflow-y: auto;
-  border: 1px solid blue;
+  /* overflow-y: auto;*/
+
+  /*border: 1px solid blue;*/
 }
