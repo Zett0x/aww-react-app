@@ -6,12 +6,15 @@ export const RedditListContainer = ({ items, setPageNum }) => {
   const [lastElement, setLastElement] = useState(null);
 
   const observer = useRef(
-    new IntersectionObserver((entries) => {
-      const first = entries[0];
-      if (first.isIntersecting) {
-        setPageNum((no) => no + 1);
-      }
-    })
+    new IntersectionObserver(
+      (entries) => {
+        const first = entries[0];
+        if (first.isIntersecting) {
+          setPageNum((no) => no + 1);
+        }
+      },
+      { threshold: 1 }
+    )
   );
 
   useEffect(() => {
