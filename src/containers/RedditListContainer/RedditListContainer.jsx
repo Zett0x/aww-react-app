@@ -35,22 +35,22 @@ export const RedditListContainer = ({ items, setPageNum }) => {
         if (i === items.length - 1) {
           return (
             <RedditListItem
-              key={item.data.id}
+              key={item.id}
               innerRef={setLastElement}
-              title={item.data.title}
-              thumbnail={item.data.thumbnail}
-              subRedditName={item.data.subreddit_name_prefixed}
-              permaLink={item.data.permalink}
+              title={item.title}
+              thumbnail={item.thumbnail}
+              subRedditName={item.subreddit_name_prefixed}
+              permaLink={item.permalink}
             />
           );
         }
         return (
           <RedditListItem
-            key={item.data.id}
-            title={item.data.title}
-            thumbnail={item.data.thumbnail}
-            subRedditName={item.data.subreddit_name_prefixed}
-            permaLink={item.data.permalink}
+            key={item.id}
+            title={item.title}
+            thumbnail={item.thumbnail}
+            subRedditName={item.subreddit_name_prefixed}
+            permaLink={item.permalink}
           />
         );
       })}

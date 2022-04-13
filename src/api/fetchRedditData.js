@@ -1,5 +1,6 @@
 import axios from "axios";
 import { API_URL, LIMIT_RESULTS } from "../constants/constants";
+import { fixFetchData } from "../utils/fixFetchData";
 
 export const fetchRedditData = async (
   afterParam,
@@ -18,9 +19,9 @@ export const fetchRedditData = async (
 
   const { after, before, children } = req.data.data;
   //let all = new Set(...oldRecords, ...children);
-  //console.log(all);
+
   setAfterParam(after);
   setBeforeParam(before);
-  setRecords(children);
+  fixFetchData(children, setRecords);
   setLoading(false);
 };
