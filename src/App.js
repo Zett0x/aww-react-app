@@ -18,7 +18,7 @@ export const App = () => {
       setBeforeParam,
       setLoading
     );
-  }, [afterParam]);
+  }, []);
 
   return (
     <div className="App">

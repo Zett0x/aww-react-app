@@ -1,5 +1,5 @@
 import axios from "axios";
-import { API_URL } from "../constants/constants";
+import { API_URL, LIMIT_RESULTS } from "../constants/constants";
 
 export const fetchRedditData = async (
   afterParam,
@@ -10,7 +10,9 @@ export const fetchRedditData = async (
 ) => {
   setLoading(true);
   const req = await axios.get(
-    `${API_URL}.json${afterParam ? "&after=" + afterParam : ""}`
+    `${API_URL.slice(0, -1)}.json?&limit=${LIMIT_RESULTS}${
+      afterParam ? "?&after=" + afterParam : ""
+    }`
   );
 
   const { after, before, children } = req.data.data;
