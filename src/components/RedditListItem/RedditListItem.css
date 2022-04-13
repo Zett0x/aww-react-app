@@ -1,9 +1,8 @@
 .reddit-list--item {
   width: 30rem;
   height: 100rem;
-  margin: 1rem;
+  margin: 2rem;
   padding: 3rem;
-
   list-style: none;
   border: 1px solid blue;
 }
