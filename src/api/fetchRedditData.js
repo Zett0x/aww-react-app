@@ -18,10 +18,10 @@ export const fetchRedditData = async (
   );
 
   const { after, before, children } = req.data.data;
-  //let all = new Set(...oldRecords, ...children);
+  let all = new Set([...oldRecords, ...fixFetchData(children)]);
 
   setAfterParam(after);
   setBeforeParam(before);
-  fixFetchData(children, setRecords);
+  setRecords([...all]);
   setLoading(false);
 };
