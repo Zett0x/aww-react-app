@@ -1,12 +1,14 @@
 .reddit-list--item {
-  width: 30rem;
+  width: 20rem;
   height: 100rem;
   margin: 2rem;
   padding: 3rem;
   list-style: none;
   border: 1px solid blue;
 }
-
+a {
+  font-size: 0.8rem;
+}
 .reddit-list--thumbnail {
-  width: 22rem;
+  width: 15rem;
 }
