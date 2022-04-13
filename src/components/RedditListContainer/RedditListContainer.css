@@ -1,0 +1,10 @@
+.reddit-list--container {
+  width: 70rem;
+  height: 70rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow-y: scroll;
+  border: 1px solid blue;
+}

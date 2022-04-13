@@ -2,6 +2,7 @@ import { fetchRedditData } from "./api/fetchRedditData";
 import "./App.css";
 
 import { useState, useEffect } from "react";
+import { RedditListContainer } from "./components/RedditListContainer/RedditListContainer";
 
 export const App = () => {
   const [records, setRecords] = useState([]);
@@ -19,15 +20,11 @@ export const App = () => {
     );
   }, [afterParam]);
 
-  console.log(records);
-
   return (
     <div className="App">
       <div className="loading">{loading && <h3>Loading...</h3>}</div>
-      <div className="records">
-        {!loading &&
-          records.map((record, i) => <li key={i}>{record.data.author}</li>)}
-      </div>
+
+      {!loading && <RedditListContainer items={records} />}
     </div>
   );
 };
