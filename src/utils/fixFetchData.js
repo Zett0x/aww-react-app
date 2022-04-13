@@ -1,5 +1,6 @@
-export const fixFetchData = (children, setData) => {
+export const fixFetchData = (children) => {
   const auxArray = [];
-  children.forEach((child) => auxArray.push(child.data));
-  setData(auxArray);
+  if (children) children.forEach((child) => auxArray.push(child.data));
+
+  return auxArray;
 };
