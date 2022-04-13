@@ -8,9 +8,11 @@ export const RedditListContainer = ({ items }) => {
     <ul className="reddit-list--container">
       {items.map((item) => (
         <RedditListItem
+          key={item.data.id}
           title={item.data.title}
           thumbnail={item.data.thumbnail}
           subRedditName={item.data.subreddit_name_prefixed}
+          permaLink={item.data.permalink}
         />
       ))}
     </ul>
