@@ -6,7 +6,8 @@ export const fetchRedditData = async (
   setRecords,
   setAfterParam,
   setBeforeParam,
-  setLoading
+  setLoading,
+  oldRecords
 ) => {
   setLoading(true);
   const req = await axios.get(
@@ -16,6 +17,8 @@ export const fetchRedditData = async (
   );
 
   const { after, before, children } = req.data.data;
+  //let all = new Set(...oldRecords, ...children);
+  //console.log(all);
   setAfterParam(after);
   setBeforeParam(before);
   setRecords(children);

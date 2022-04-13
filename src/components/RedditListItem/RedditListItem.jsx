@@ -6,9 +6,10 @@ export const RedditListItem = ({
   thumbnail,
   subRedditName,
   permaLink,
+  innerRef,
 }) => {
   return (
-    <div className="reddit-list--item">
+    <div ref={innerRef} className="reddit-list--item">
       <div className="reddit-list--title">
         <a href={`https://www.reddit.com/${permaLink}`}>
           <h2>{title}</h2>
