@@ -5,7 +5,7 @@ import "./RedditListContainer.css";
 export const RedditListContainer = ({ items }) => {
   console.log(items);
   return (
-    <ul className="reddit-list--container">
+    <div className="reddit-list--container">
       {items.map((item) => (
         <RedditListItem
           key={item.data.id}
@@ -15,6 +15,6 @@ export const RedditListContainer = ({ items }) => {
           permaLink={item.data.permalink}
         />
       ))}
-    </ul>
+    </div>
   );
 };
