@@ -4,7 +4,7 @@ import "./App.css";
 import { useState, useEffect } from "react";
 
 import { RedditListContainer } from "./containers/RedditListContainer/RedditListContainer";
-//import { IMG_LOADING } from "./constants/constants";
+import { IMG_LOADING } from "./constants/constants";
 
 export const App = () => {
   const [records, setRecords] = useState([]);
@@ -30,6 +30,12 @@ export const App = () => {
           loading={loading}
           setLoading={setLoading}
         />
+      )}
+
+      {loading && (
+        <div className="loading">
+          <img src={IMG_LOADING} alt="loading" />
+        </div>
       )}
     </div>
   );

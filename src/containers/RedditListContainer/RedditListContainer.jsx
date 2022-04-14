@@ -1,11 +1,8 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect, memo } from "react";
 
-import {
-  RedditListItem,
-  MemoizedRedditListItem,
-} from "../../components/RedditListItem/RedditListItem";
+import { RedditListItem } from "../../components/RedditListItem/RedditListItem";
 
-export const RedditListContainer = ({ items, setPageNum }) => {
+export const RedditListContainer = memo(({ items, setPageNum }) => {
   console.log("redditlistcontainer called");
   const [lastElement, setLastElement] = useState(null);
 
@@ -42,7 +39,7 @@ export const RedditListContainer = ({ items, setPageNum }) => {
         {items.map((item, i) => {
           if (i === items.length - 1) {
             return (
-              <MemoizedRedditListItem
+              <RedditListItem
                 key={item.id}
                 innerRef={setLastElement}
                 title={item.title}
@@ -53,7 +50,7 @@ export const RedditListContainer = ({ items, setPageNum }) => {
             );
           }
           return (
-            <MemoizedRedditListItem
+            <RedditListItem
               key={item.id}
               title={item.title}
               thumbnail={item.thumbnail}
@@ -65,5 +62,4 @@ export const RedditListContainer = ({ items, setPageNum }) => {
       </div>
     </>
   );
-};
-export const MemoizedRedditListContainer = React.memo(RedditListContainer);
+});

@@ -20,11 +20,11 @@ export const fetchRedditData = async (
   const all = new Set([...oldRecords, ...fixFetchData(children)]);
 
   setAfterParam(after);
-  setRecords([...all]);
+  //setRecords([...all]);
 
   // setRecords((oldRecords) => [
   //   ...new Set([...oldRecords, ...fixFetchData(children)]),
   // ]);
-  //setRecords([...fixFetchData(children)]);
+  setRecords([...fixFetchData(children)]);
   setLoading(false);
 };
