@@ -1,9 +1,12 @@
-import React, { useRef, useState, useEffect, memo } from "react";
+import React, { useRef, useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { startLoadingRecords } from "../../actions/records";
 
 import { RedditListItem } from "../../components/RedditListItem/RedditListItem";
 import "./RedditListContainer.css";
-export const RedditListContainer = ({ items, setPageNum }) => {
-  console.log("redditlistcontainer called");
+export const RedditListContainer = React.memo(({ items }) => {
+  const dispatch = useDispatch();
+  const { after } = useSelector((state) => state.records);
   const [lastElement, setLastElement] = useState(null);
 
   const observer = useRef(
@@ -11,12 +14,14 @@ export const RedditListContainer = ({ items, setPageNum }) => {
       (entries) => {
         const first = entries[0];
         if (first.isIntersecting) {
-          setPageNum((no) => no + 1);
+          dispatch(startLoadingRecords(after));
         }
       },
       { threshold: 1 }
     )
   );
+
+  React.useEffect(() => console.log("Container Rendered"), []);
 
   useEffect(() => {
     const currentElement = lastElement;
@@ -62,4 +67,4 @@ export const RedditListContainer = ({ items, setPageNum }) => {
       </div>
     </>
   );
-};
+});

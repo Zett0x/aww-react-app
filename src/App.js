@@ -1,41 +1,28 @@
-import { fetchRedditData } from "./api/fetchRedditData";
 import "./App.css";
-
-import { useState, useEffect } from "react";
+import React from "react";
+import { useEffect } from "react";
 
 import { RedditListContainer } from "./containers/RedditListContainer/RedditListContainer";
-import { IMG_LOADING } from "./constants/constants";
+import { useDispatch, useSelector } from "react-redux";
+import { startLoadingRecords } from "./actions/records";
 
 export const App = () => {
-  const [records, setRecords] = useState([]);
-  const [afterParam, setAfterParam] = useState(null);
-  const [pageNum, setPageNum] = useState(1);
-  const [loading, setLoading] = useState(false);
+  const dispatch = useDispatch();
+  const { after, loading, records } = useSelector((state) => state.records);
 
   useEffect(() => {
     console.log("App render");
-    console.log("App records:", records);
   }, []);
 
   useEffect(() => {
-    fetchRedditData(afterParam, setRecords, setAfterParam, setLoading, records);
-  }, [pageNum]);
+    dispatch(startLoadingRecords(after));
+  }, [dispatch]);
 
   return (
     <div className="App">
-      {!loading && records && (
-        <RedditListContainer
-          items={records}
-          setPageNum={setPageNum}
-          loading={loading}
-          setLoading={setLoading}
-        />
-      )}
+      {!loading && records && <RedditListContainer items={records} />}
 
       {loading && (
-        // <div className="loading">
-        //   <img src={IMG_LOADING} alt="loading" />
-        // </div>
         <div className="loading">
           <h4>Loading...</h4>
         </div>
