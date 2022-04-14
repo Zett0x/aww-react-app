@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect, memo } from "react";
 
 import { RedditListItem } from "../../components/RedditListItem/RedditListItem";
 import "./RedditListContainer.css";
-export const RedditListContainer = memo(({ items, setPageNum }) => {
+export const RedditListContainer = ({ items, setPageNum }) => {
   console.log("redditlistcontainer called");
   const [lastElement, setLastElement] = useState(null);
 
@@ -62,4 +62,4 @@ export const RedditListContainer = memo(({ items, setPageNum }) => {
       </div>
     </>
   );
-});
+};
