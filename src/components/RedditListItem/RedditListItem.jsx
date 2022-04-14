@@ -1,3 +1,4 @@
+import React from "react";
 import { DEFAULT_IMG } from "../../constants/constants";
 import "./RedditListItem.css";
 
@@ -18,8 +19,8 @@ export const RedditListItem = ({
 
       <img
         src={thumbnail ? thumbnail : DEFAULT_IMG}
-        alt={title}
         className="reddit-list--thumbnail"
+        alt="pet"
       />
       <div className="reddit-list--subredditname">
         <h3>{subRedditName}</h3>
@@ -27,3 +28,5 @@ export const RedditListItem = ({
     </div>
   );
 };
+
+export const MemoizedRedditListItem = React.memo(RedditListItem);

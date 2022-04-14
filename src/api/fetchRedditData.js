@@ -22,6 +22,7 @@ export const fetchRedditData = async (
 
   setAfterParam(after);
   setBeforeParam(before);
-  setRecords([...all]);
+  //setRecords([...all]);
+  setRecords([...fixFetchData(children)]);
   setLoading(false);
 };

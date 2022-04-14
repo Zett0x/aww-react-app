@@ -1,12 +1,14 @@
 .reddit-list--container {
   width: 65rem;
-  height: 65rem;
+  height: 100%;
   padding-top: 5rem;
+  padding-bottom: 5rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+
   /* overflow-y: auto;*/
 
-  /*border: 1px solid blue;*/
+  border: 1px solid blue;
 }

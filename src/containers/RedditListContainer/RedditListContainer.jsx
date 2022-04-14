@@ -1,8 +1,12 @@
 import React, { useRef, useState, useEffect } from "react";
-import { RedditListItem } from "../../components/RedditListItem/RedditListItem";
-import "./RedditListContainer.css";
+
+import {
+  RedditListItem,
+  MemoizedRedditListItem,
+} from "../../components/RedditListItem/RedditListItem";
 
 export const RedditListContainer = ({ items, setPageNum }) => {
+  console.log("redditlistcontainer called");
   const [lastElement, setLastElement] = useState(null);
 
   const observer = useRef(
@@ -33,30 +37,33 @@ export const RedditListContainer = ({ items, setPageNum }) => {
   }, [lastElement]);
 
   return (
-    <div className="reddit-list--container">
-      {items.map((item, i) => {
-        if (i === items.length - 1) {
+    <>
+      <div className="reddit-list--container">
+        {items.map((item, i) => {
+          if (i === items.length - 1) {
+            return (
+              <MemoizedRedditListItem
+                key={item.id}
+                innerRef={setLastElement}
+                title={item.title}
+                thumbnail={item.thumbnail}
+                subRedditName={item.subreddit_name_prefixed}
+                permaLink={item.permalink}
+              />
+            );
+          }
           return (
-            <RedditListItem
+            <MemoizedRedditListItem
               key={item.id}
-              innerRef={setLastElement}
               title={item.title}
               thumbnail={item.thumbnail}
               subRedditName={item.subreddit_name_prefixed}
               permaLink={item.permalink}
             />
           );
-        }
-        return (
-          <RedditListItem
-            key={item.id}
-            title={item.title}
-            thumbnail={item.thumbnail}
-            subRedditName={item.subreddit_name_prefixed}
-            permaLink={item.permalink}
-          />
-        );
-      })}
-    </div>
+        })}
+      </div>
+    </>
   );
 };
+export const MemoizedRedditListContainer = React.memo(RedditListContainer);
