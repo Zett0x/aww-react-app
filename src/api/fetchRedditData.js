@@ -6,7 +6,6 @@ export const fetchRedditData = async (
   afterParam,
   setRecords,
   setAfterParam,
-  setBeforeParam,
   setLoading,
   oldRecords
 ) => {
@@ -18,11 +17,14 @@ export const fetchRedditData = async (
   );
 
   const { after, before, children } = req.data.data;
-  let all = new Set([...oldRecords, ...fixFetchData(children)]);
+  const all = new Set([...oldRecords, ...fixFetchData(children)]);
 
   setAfterParam(after);
-  setBeforeParam(before);
-  //setRecords([...all]);
-  setRecords([...fixFetchData(children)]);
+  setRecords([...all]);
+
+  // setRecords((oldRecords) => [
+  //   ...new Set([...oldRecords, ...fixFetchData(children)]),
+  // ]);
+  //setRecords([...fixFetchData(children)]);
   setLoading(false);
 };

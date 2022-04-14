@@ -2,38 +2,35 @@ import { fetchRedditData } from "./api/fetchRedditData";
 import "./App.css";
 
 import { useState, useEffect } from "react";
-import { MemoizedRedditListContainer } from "./containers/RedditListContainer/RedditListContainer";
+
 import { RedditListContainer } from "./containers/RedditListContainer/RedditListContainer";
-import { IMG_LOADING } from "./constants/constants";
+//import { IMG_LOADING } from "./constants/constants";
 
 export const App = () => {
   const [records, setRecords] = useState([]);
   const [afterParam, setAfterParam] = useState(null);
-  const [beforeParam, setBeforeParam] = useState(null);
   const [pageNum, setPageNum] = useState(1);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    fetchRedditData(
-      afterParam,
-      setRecords,
-      setAfterParam,
-      setBeforeParam,
-      setLoading,
-      records
-    );
+    console.log("App render");
+    console.log("App records:", records);
+  }, []);
+
+  useEffect(() => {
+    fetchRedditData(afterParam, setRecords, setAfterParam, setLoading, records);
   }, [pageNum]);
 
   return (
     <div className="App">
-      {!loading && (
-        <MemoizedRedditListContainer items={records} setPageNum={setPageNum} />
-
-        //<RedditListContainer items={records} setPageNum={setPageNum} />
+      {!loading && records && (
+        <RedditListContainer
+          items={records}
+          setPageNum={setPageNum}
+          loading={loading}
+          setLoading={setLoading}
+        />
       )}
-      <div className="loading">
-        {loading && <img src={IMG_LOADING} alt="image loading" />}
-      </div>
     </div>
   );
 };

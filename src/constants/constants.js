@@ -8,3 +8,5 @@ export const DEFAULT_IMG =
 export const LIMIT_RESULTS = 25;
 
 export const IMG_LOADING = "https://i.stack.imgur.com/MEBIB.gif";
+
+export const REDDIT_URL = "https://www.reddit.com/";
