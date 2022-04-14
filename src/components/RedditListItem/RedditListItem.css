@@ -4,11 +4,15 @@
   margin: 3rem;
   padding: 3rem;
   list-style: none;
-  border: 1px solid blue;
+  border: 1px solid rgba(0, 0, 255, 0.226);
+  border-radius: 0.5rem;
+  background-color: rgba(243, 161, 94, 0.301);
 }
 a {
   font-size: 0.8rem;
 }
 .reddit-list--thumbnail {
   width: 15rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.466);
 }

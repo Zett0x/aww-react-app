@@ -5,6 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background-color: rgba(67, 122, 16, 0.363);
 }
 
 code {
@@ -13,6 +15,7 @@ code {
 }
 a {
   text-decoration: none;
+  color: black;
 }
 a:hover {
   text-decoration: underline;

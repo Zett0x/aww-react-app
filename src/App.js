@@ -33,8 +33,11 @@ export const App = () => {
       )}
 
       {loading && (
+        // <div className="loading">
+        //   <img src={IMG_LOADING} alt="loading" />
+        // </div>
         <div className="loading">
-          <img src={IMG_LOADING} alt="loading" />
+          <h4>Loading...</h4>
         </div>
       )}
     </div>
