@@ -2,6 +2,7 @@ import { fetchRedditData } from "./api/fetchRedditData";
 import "./App.css";
 
 import { useState, useEffect } from "react";
+import { MemoizedRedditListContainer } from "./containers/RedditListContainer/RedditListContainer";
 import { RedditListContainer } from "./containers/RedditListContainer/RedditListContainer";
 import { IMG_LOADING } from "./constants/constants";
 
@@ -26,9 +27,10 @@ export const App = () => {
   return (
     <div className="App">
       {!loading && (
-        <RedditListContainer items={records} setPageNum={setPageNum} />
-      )}
+        <MemoizedRedditListContainer items={records} setPageNum={setPageNum} />
 
+        //<RedditListContainer items={records} setPageNum={setPageNum} />
+      )}
       <div className="loading">
         {loading && <img src={IMG_LOADING} alt="image loading" />}
       </div>
