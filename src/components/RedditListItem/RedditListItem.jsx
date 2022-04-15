@@ -14,7 +14,11 @@ export const RedditListItem = React.memo(
     return (
       <div className="reddit-list--item">
         <div className="reddit-list--title">
-          <a href={`https://www.reddit.com/${permaLink}`} target={"_blank"}>
+          <a
+            href={`https://www.reddit.com/${permaLink}`}
+            target={"_blank"}
+            rel="noreferrer"
+          >
             <h2>{title}</h2>
           </a>
         </div>
