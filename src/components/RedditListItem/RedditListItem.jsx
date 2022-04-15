@@ -9,10 +9,10 @@ This component render an item List
 */
 
 export const RedditListItem = React.memo(
-  ({ title, thumbnail, subRedditName, permaLink }) => {
-    React.useEffect(() => console.log("Item rendered"), []);
+  ({ title, thumbnail, subRedditName, permaLink, innerRef }) => {
+    React.useEffect(() => console.log(innerRef), []);
     return (
-      <div className="reddit-list--item">
+      <div ref={innerRef} className="reddit-list--item">
         <div className="reddit-list--title">
           <a
             href={`https://www.reddit.com/${permaLink}`}

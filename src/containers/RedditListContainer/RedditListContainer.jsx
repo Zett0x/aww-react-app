@@ -23,6 +23,10 @@ export const RedditListContainer = () => {
   const [lastElement, setLastElement] = useState(null);
   const [page, setPage] = useState(1);
 
+  useEffect(() => {
+    dispatch(startLoadingRecords(after));
+  }, [page]);
+
   const observer = useRef(
     new IntersectionObserver(
       (entries) => {
@@ -37,10 +41,6 @@ export const RedditListContainer = () => {
       { threshold: 1 }
     )
   );
-
-  useEffect(() => {
-    dispatch(startLoadingRecords(after));
-  }, [page]);
 
   useEffect(() => {
     const currentElement = lastElement;
@@ -60,7 +60,19 @@ export const RedditListContainer = () => {
   return (
     <>
       <div className="reddit-list--container">
-        {items.map((item) => {
+        {items.map((item, i) => {
+          if (i === items.length - 1) {
+            return (
+              <RedditListItem
+                key={item.id}
+                innerRef={setLastElement}
+                title={item.title}
+                thumbnail={item.thumbnail}
+                subRedditName={item.subreddit_name_prefixed}
+                permaLink={item.permalink}
+              />
+            );
+          }
           return (
             <RedditListItem
               key={item.id}
@@ -72,9 +84,7 @@ export const RedditListContainer = () => {
           );
         })}
 
-        <div ref={setLastElement} className="observed">
-          {loading && <h3>Loading...</h3>}
-        </div>
+        <div className="loading">{loading && <h3>Loading...</h3>}</div>
       </div>
     </>
   );
