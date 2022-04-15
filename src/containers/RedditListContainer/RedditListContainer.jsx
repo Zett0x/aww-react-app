@@ -13,25 +13,34 @@ import "./RedditListContainer.css";
 
 */
 
-export const RedditListContainer = React.memo(({ items }) => {
+export const RedditListContainer = () => {
   const dispatch = useDispatch();
-  const { after } = useSelector((state) => state.records);
+  const {
+    after,
+    records: items,
+    loading,
+  } = useSelector((state) => state.records);
   const [lastElement, setLastElement] = useState(null);
+  const [page, setPage] = useState(1);
 
   const observer = useRef(
     new IntersectionObserver(
       (entries) => {
         const first = entries[0];
         if (first.isIntersecting) {
+          console.log("en vista");
           // IF the last element of the list is visible on the screen, we load more data calling the action "startLoadingRecords"
-          dispatch(startLoadingRecords(after));
+          //dispatch(startLoadingRecords(after));
+          setPage((prevPage) => prevPage + 1);
         }
       },
       { threshold: 1 }
     )
   );
 
-  React.useEffect(() => console.log("Container Rendered"), []);
+  useEffect(() => {
+    dispatch(startLoadingRecords(after));
+  }, [page]);
 
   useEffect(() => {
     const currentElement = lastElement;
@@ -63,8 +72,10 @@ export const RedditListContainer = React.memo(({ items }) => {
           );
         })}
 
-        <div ref={setLastElement} className="observed"></div>
+        <div ref={setLastElement} className="observed">
+          {loading && <h3>Loading...</h3>}
+        </div>
       </div>
     </>
   );
-});
+};
