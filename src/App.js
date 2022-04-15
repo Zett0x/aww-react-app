@@ -4,6 +4,7 @@ import { useEffect } from "react";
 
 import { RedditListContainer } from "./containers/RedditListContainer/RedditListContainer";
 import { useDispatch, useSelector } from "react-redux";
+
 import { startLoadingRecords } from "./actions/records";
 
 export const App = () => {
