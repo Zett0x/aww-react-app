@@ -10,7 +10,7 @@ This component render an item List
 
 export const RedditListItem = React.memo(
   ({ title, thumbnail, subRedditName, permaLink }) => {
-    React.useEffect(() => console.log("Item Rendered"), []);
+    React.useEffect(() => console.log("Item rendered"), []);
     return (
       <div className="reddit-list--item">
         <div className="reddit-list--title">
@@ -20,7 +20,7 @@ export const RedditListItem = React.memo(
         </div>
 
         <img
-          src={thumbnail ? thumbnail : DEFAULT_IMG}
+          src={thumbnail.includes("http") ? thumbnail : DEFAULT_IMG}
           className="reddit-list--thumbnail"
           alt="pet"
         />
