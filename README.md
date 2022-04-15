@@ -2,21 +2,21 @@
 
 This project was developed using React library, Redux and CSS.
 
-## Installation
+### Installation
 
-### 1. Clone the repository
+#### 1. Clone the repository
 
 command: `git clone https://github.com/Zett0x/aww-react-app`
 
-### 2. Enter in the folder and open it with your favourite code editor
+#### 2. Enter in the folder and open it with your favourite code editor
 
 command: `cd aww-react-app`
 command: `code .`
 
-### 3. Install all the depencencies of the project
+#### 3. Install all the depencencies of the project
 
 command: `npm install`
 
-### 4. Execute de development environment
+#### 4. Execute de development environment
 
 command: `npm start`
