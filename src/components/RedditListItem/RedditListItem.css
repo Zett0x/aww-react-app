@@ -2,11 +2,15 @@
   width: 20rem;
   height: auto;
   margin: 3rem;
-  padding: 3rem;
+  padding: 2rem;
   list-style: none;
   border: 1px solid rgba(0, 0, 255, 0.226);
   border-radius: 0.5rem;
   background-color: rgba(243, 161, 94, 0.301);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
 }
 a {
   font-size: 0.8rem;
@@ -15,4 +19,5 @@ a {
   width: 15rem;
   border-radius: 0.5rem;
   border: 1px solid rgba(0, 0, 0, 0.466);
+  margin-top: 1rem;
 }

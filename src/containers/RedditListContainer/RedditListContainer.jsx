@@ -4,6 +4,7 @@ import { startLoadingRecords } from "../../actions/records";
 
 import { RedditListItem } from "../../components/RedditListItem/RedditListItem";
 import "./RedditListContainer.css";
+
 export const RedditListContainer = React.memo(({ items }) => {
   const dispatch = useDispatch();
   const { after } = useSelector((state) => state.records);
