@@ -10,7 +10,6 @@ This component render an item List
 
 export const RedditListItem = React.memo(
   ({ title, thumbnail, subRedditName, permaLink, innerRef }) => {
-    React.useEffect(() => console.log(innerRef), []);
     return (
       <div ref={innerRef} className="reddit-list--item">
         <div className="reddit-list--title">
