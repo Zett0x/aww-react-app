@@ -5,6 +5,14 @@ import { startLoadingRecords } from "../../actions/records";
 import { RedditListItem } from "../../components/RedditListItem/RedditListItem";
 import "./RedditListContainer.css";
 
+/* ITEM LIST CONTAINER 
+
+  This component loop over the items and render a RedditListItem component per each iteration.
+
+  This component uses the Intersection Observer API for observing the last element in the list
+
+*/
+
 export const RedditListContainer = React.memo(({ items }) => {
   const dispatch = useDispatch();
   const { after } = useSelector((state) => state.records);
@@ -15,6 +23,7 @@ export const RedditListContainer = React.memo(({ items }) => {
       (entries) => {
         const first = entries[0];
         if (first.isIntersecting) {
+          // IF the last element of the list is visible on the screen, we load more data calling the action "startLoadingRecords"
           dispatch(startLoadingRecords(after));
         }
       },

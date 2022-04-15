@@ -2,6 +2,12 @@ import React from "react";
 import { DEFAULT_IMG } from "../../constants/constants";
 import "./RedditListItem.css";
 
+/* ITEM COMPONENT
+This component render an item List
+The innerRef prop is used for identificating the last element
+
+*/
+
 export const RedditListItem = React.memo(
   ({ title, thumbnail, subRedditName, permaLink, innerRef }) => {
     React.useEffect(() => console.log("Item Rendered"), []);
