@@ -51,7 +51,7 @@ export const RedditListContainer = React.memo(({ items }) => {
   return (
     <>
       <div className="reddit-list--container">
-        {items.map((item, i) => {
+        {items.map((item) => {
           return (
             <RedditListItem
               key={item.id}
