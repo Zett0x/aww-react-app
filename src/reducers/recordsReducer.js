@@ -11,8 +11,8 @@ export const recordsReducer = (state = initialState, action) => {
     case types.recordsSetRecords:
       return {
         ...state,
-        //records: [...new Set([...state.records, ...action.payload])], HERE YOU WILL GET NEW POSTS AND OLD
-        records: [...action.payload],
+        records: [...new Set([...state.records, ...action.payload])], //, HERE YOU WILL GET NEW POSTS AND OLD
+        //records: [...action.payload],
 
         //records: state.records.concat(action.payload),
       };
