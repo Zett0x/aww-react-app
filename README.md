@@ -17,6 +17,6 @@ command: `code .`
 
 command: `npm install`
 
-#### 4. Execute de development environment
+#### 4. Start the development environment
 
 command: `npm start`
