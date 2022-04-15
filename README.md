@@ -1,6 +1,6 @@
 # Aww Web App
 
-This project was developed using React library, Redux and CSS.
+This project was developed using React library, Redux,CSS and the Reddit API
 
 ### Installation
 
