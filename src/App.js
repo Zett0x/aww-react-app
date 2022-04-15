@@ -25,7 +25,7 @@ export const App = () => {
 
       {loading && (
         <div className="loading">
-          <h4>Loading...</h4>
+          <h3>Loading...</h3>
         </div>
       )}
     </div>

@@ -10,3 +10,11 @@
 
   /* overflow-y: auto;*/
 }
+
+.observed {
+  width: 20rem;
+  height: 13rem;
+  margin: 3rem;
+  padding: 2rem;
+  /*border: 1px solid rgba(0, 0, 255, 0.226);*/
+}

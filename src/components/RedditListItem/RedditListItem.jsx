@@ -4,15 +4,15 @@ import "./RedditListItem.css";
 
 /* ITEM COMPONENT
 This component render an item List
-The innerRef prop is used for identificating the last element
+
 
 */
 
 export const RedditListItem = React.memo(
-  ({ title, thumbnail, subRedditName, permaLink, innerRef }) => {
+  ({ title, thumbnail, subRedditName, permaLink }) => {
     React.useEffect(() => console.log("Item Rendered"), []);
     return (
-      <div ref={innerRef} className="reddit-list--item">
+      <div className="reddit-list--item">
         <div className="reddit-list--title">
           <a href={`https://www.reddit.com/${permaLink}`}>
             <h2>{title}</h2>

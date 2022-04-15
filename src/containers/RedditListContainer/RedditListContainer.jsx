@@ -9,7 +9,7 @@ import "./RedditListContainer.css";
 
   This component loop over the items and render a RedditListItem component per each iteration.
 
-  This component uses the Intersection Observer API for observing the last element in the list
+  This component uses the Intersection Observer API for observing the div with the class "observed"
 
 */
 
@@ -52,18 +52,6 @@ export const RedditListContainer = React.memo(({ items }) => {
     <>
       <div className="reddit-list--container">
         {items.map((item, i) => {
-          if (i === items.length - 1) {
-            return (
-              <RedditListItem
-                key={item.id}
-                innerRef={setLastElement}
-                title={item.title}
-                thumbnail={item.thumbnail}
-                subRedditName={item.subreddit_name_prefixed}
-                permaLink={item.permalink}
-              />
-            );
-          }
           return (
             <RedditListItem
               key={item.id}
@@ -74,6 +62,8 @@ export const RedditListContainer = React.memo(({ items }) => {
             />
           );
         })}
+
+        <div ref={setLastElement} className="observed"></div>
       </div>
     </>
   );
